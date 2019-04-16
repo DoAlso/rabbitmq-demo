@@ -5,8 +5,8 @@ import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageDeliveryMode;
 import org.springframework.amqp.core.MessagePostProcessor;
 import org.springframework.amqp.core.MessageProperties;
+import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
@@ -37,6 +37,6 @@ public class Sender {
         MessageProperties messageProperties = new MessageProperties();
         Message message = new Message("Hello,RabbitMQ".getBytes(),messageProperties);
         this.redisTemplate.opsForHash().put("mq.producer.retry.key", msgId, "");
-        this.rabbitTemplate.convertAndSend("topicExchange","topic.dispatch", message,messagePostProcessor,new CorrelationData(msgId));
+        this.rabbitTemplate.convertAndSend("topicExchange","topic.dispatch1", message,messagePostProcessor,new CorrelationData(msgId));
     }
 }

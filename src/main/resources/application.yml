@@ -1,0 +1,7 @@
+spring:
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    publisher-confirms: true
+    publisher-returns: true
