@@ -5,3 +5,5 @@ spring:
     password: guest
     publisher-confirms: true
     publisher-returns: true
+host:
+  luna: 49.4.65.228

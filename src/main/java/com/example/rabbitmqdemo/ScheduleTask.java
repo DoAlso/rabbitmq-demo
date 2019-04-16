@@ -12,6 +12,7 @@ public class ScheduleTask {
 
     @Scheduled(fixedRate = 5000)
     public void reportCurrentTime() {
+        System.out.println("Start Sending ...");
         sender.send();
     }
 }
